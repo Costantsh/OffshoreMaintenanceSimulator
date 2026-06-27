@@ -1,0 +1,8 @@
+simpy
+matplotlib
+numpy
+scipy
+reportlab
+networkx
+flask
+flask-cors

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Operation | Offshore Maintenance Simulator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>Atlas Operation</h1>
+            </div>
+            <p class="subtitle">Offshore Maintenance Digital Twin</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <section class="control-panel">
+                <div class="control-info">
+                    <h2>Simulation Control</h2>
+                    <p>Run the stochastic simulation model to evaluate the efficiency of the offshore logistics fleet.</p>
+                </div>
+                <button id="run-btn" class="btn-primary">
+                    <span class="btn-text">Run Simulation</span>
+                    <span class="spinner hidden"></span>
+                </button>
+            </section>
+
+            <!-- Results Dashboard (Hidden by default) -->
+            <section id="results-dashboard" class="dashboard hidden">
+                <div class="section-title">
+                    <h3>Key Performance Indicators (KPIs)</h3>
+                    <div class="status-badge"><span class="pulse"></span> Live Data</div>
+                </div>
+
+                <!-- KPI Grid -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <h4>Avg Response Time (W)</h4>
+                        <div class="kpi-value" id="kpi-w">--</div>
+                        <div class="kpi-desc">Time units</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Avg Queue Length (Lq)</h4>
+                        <div class="kpi-value" id="kpi-lq">--</div>
+                        <div class="kpi-desc">Assets waiting</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>System Utilization (ρ)</h4>
+                        <div class="kpi-value" id="kpi-rho">--</div>
+                        <div class="kpi-desc">Fleet saturation</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Little's Law Error</h4>
+                        <div class="kpi-value highlight" id="kpi-error">--</div>
+                        <div class="kpi-desc">Validation</div>
+                    </div>
+                </div>
+
+                <!-- Monte Carlo Result -->
+                <div class="mc-card">
+                    <div class="mc-info">
+                        <h4>Monte Carlo Validation (20 Iterations)</h4>
+                        <p>Robust stochastic mean response time across multiple independent runs.</p>
+                    </div>
+                    <div class="mc-value" id="kpi-mc">--</div>
+                </div>
+
+                <!-- Graphs Gallery -->
+                <div class="section-title" style="margin-top: 2rem;">
+                    <h3>Executive Visual Analytics</h3>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img id="img-01" src="" alt="Graph 1" />
+                        <div class="card-overlay">Temporal Response (W)</div>
+                    </div>
+                    <div class="gallery-card">
+                        <img id="img-02" src="" alt="Graph 2" />
+                        <div class="card-overlay">Queue Dynamics</div>
+                    </div>
+                    <div class="gallery-card">
+                        <img id="img-03" src="" alt="Graph 3" />
+                        <div class="card-overlay">Network Reliability</div>
+                    </div>
+                    <div class="gallery-card">
+                        <img id="img-04" src="" alt="Graph 4" />
+                        <div class="card-overlay">Stochastic Distribution</div>
+                    </div>
+                </div>
+
+                <!-- PDF Download -->
+                <div class="pdf-download">
+                    <a id="pdf-link" href="#" target="_blank" class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        View Executive PDF Report
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
